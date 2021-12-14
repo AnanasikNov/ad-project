@@ -24,7 +24,7 @@
 					</v-form> // конец формы
 					<v-layout  row> // начало первого блока 
 					</v-form>
-					<v-layout  row> 
+					<v-layout  row>
 						<v-flex xs12>
 						<v-btn 
 						class="mt-3"
@@ -42,8 +42,8 @@
 						</v-flex>
 					</v-layout> //конец второго блока
 					<v-layout row> // начало третьего блока
-					</v-layout> 
-					<v-layout row> 
+					</v-layout>
+					<v-layout row>
 						<v-flex xs12>
 						<v-switch
 						v-model="promo"
@@ -53,7 +53,7 @@
 					</v-layout> // конец третьего блока
 					<v-layout row> //начало четвертого блока
 					</v-layout>
-					<v-layout row> 
+					<v-layout row>
 						<v-flex xs12>
 						<v-spacer></v-spacer>
 						<v-btn 
@@ -62,7 +62,7 @@
 						>Create Ad</v-btn>
 						</v-flex>
 					</v-layout>// конец четвертого блока   
-					</v-layout>   
+					</v-layout>
 			</v-flex>
 		</v-layout>
 	</v-container>
