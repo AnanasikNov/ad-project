@@ -7,13 +7,12 @@
 					Login
 				</v-toolbar>
 				<v-card-text>
-					<v-form>
 					<v-form v-model="valid" ref="form" validation>
+					<v-form v-model="valid" ref="form" lazy-validation>
 						<v-text-field
 						prepend-icon="mdi-account"
 						name="email"
 						label="Email"
-						type="email"></v-text-field>
 						type="email"
 						v-model="email"
 						:rules="emailRules"
@@ -22,7 +21,6 @@
                         prepend-icon="mdi-lock" 
                         name="password" 
                         label="Password" 
-                        type="password">
                         type="password"
                         v-model="password"
                         :rules="passwordRules"
@@ -32,7 +30,6 @@
 				</v-card-text>
 				<v-card-actions>
 					<v-spacer></v-spacer>
-					<v-btn color="primary">Login</v-btn>
 					<v-btn 
 					color="primary"
 					@click="onSubmit"
@@ -71,4 +68,4 @@ export default {
 		}
 	}
 } 
-</script> 
+</script>
