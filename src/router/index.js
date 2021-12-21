@@ -6,7 +6,6 @@ import NewAd from '@/components/Ads/NewAd'
 import Login from '@/components/Auth/Login'
 import Registration from '@/components/Auth/Registration'
 import Orders from '@/components/User/Orders'
-
 export default new Router({
 	routes: [
 	{
@@ -16,6 +15,7 @@ export default new Router({
 	},
 	{
 		path:"/ad/:id",
+		props: true,
 		name:"ad",
 		component:Ad
 	},
