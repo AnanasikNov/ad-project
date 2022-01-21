@@ -1,9 +1,4 @@
 <template> 
-	<v-container>
-		<v-layout row> 
-			<v-flex xs12>
-				<h1>Registration</h1> 
-			</v-flex>
 	<v-container fluid fill-height>
 		<v-layout align-center justify-center> 
 		<v-flex xs12 sm8 md8>
@@ -46,7 +41,8 @@
 					<v-btn 
 					color="primary"
 					@click="onSubmit"
-					:disabled="!valid"
+					:loading="loading"
+					:disabled="!valid || loading"
 					>Create Account</v-btn>
 				</v-card-actions>
 			</v-card>
@@ -54,7 +50,6 @@
 		</v-layout> 
 	</v-container>
 </template>
-
 <script>
 export default {
 	data () { 
@@ -77,14 +72,27 @@ export default {
 			]
 		} 	
 	},
+	computed: {
+		loading() {
+			return this.$store.getters.loading
+		}
+	},
 	methods: {
 		onSubmit(){
+			if (this.$refs.form.validate()){
 			const user = {
 				email: this.email,
 				password: this.password
 			}
 			this.$store.dispatch('registerUser', user)
+			.then(() => {
+				this.$router.push("/")
+			})
+			.catch((err) => {
+			console.log(err.message)
+			})
 		}
 	}
 } 
+}
 </script> 
