@@ -3,7 +3,6 @@
 		<v-layout row> 
 			<v-flex xs12 sm6 offset-sm3>
 				<h1 class="text--secondary mb-3 mt-3">Create Ad</h1>
-				<v-form v-model="valid" ref="form" validation> // начало формы
 				<v-form v-model="valid" ref="form" validation>
 					<v-text-field
 					name="title" 
@@ -21,8 +20,6 @@
 					:rules="[ v => !!v || 'Description is required']"
 					class="mb-3" 
 					></v-textarea>
-					</v-form> // конец формы
-					<v-layout  row> // начало первого блока 
 					</v-form>
 					<v-layout  row>
 						<v-flex xs12>
@@ -33,15 +30,11 @@
 						<v-icon right dark>mdi-cloud-upload</v-icon>
 						</v-btn>
 						</v-flex>
-					</v-layout> // конец первого блока
-					<v-layout row> // начало второго блока 
 					</v-layout>
 					<v-layout row>
 						<v-flex xs12>
 						<img 	src="https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg" height="150" class="mt-3">
 						</v-flex>
-					</v-layout> //конец второго блока
-					<v-layout row> // начало третьего блока
 					</v-layout>
 					<v-layout row>
 						<v-flex xs12>
@@ -50,8 +43,6 @@
 						label="Ad to Promo?"
 						></v-switch>
 						</v-flex>
-					</v-layout> // конец третьего блока
-					<v-layout row> //начало четвертого блока
 					</v-layout>
 					<v-layout row>
 						<v-flex xs12>
@@ -61,7 +52,6 @@
 						@click="createAd" 
 						>Create Ad</v-btn>
 						</v-flex>
-					</v-layout>// конец четвертого блока   
 					</v-layout>
 			</v-flex>
 		</v-layout>
@@ -83,9 +73,10 @@ export default {
 			const ad = {
 				title: this.title,
 				desc: this.description,
-				promo: this.promo
+				promo: this.promo,
+				src: "https://cdn.vuetifyjs.com/images/cards/cooking.png"
 			}
-			console.log(ad)
+			this.$store.dispatch("createAd", ad)
 			}
 		}
 	}
