@@ -1,11 +1,11 @@
 <template> 
-	<div>
+	<!--<div v-if="!loading">-->
+		<div>
 	<v-container fluid>
 		<v-layout row> 
 			<v-flex xs12>
 				<v-carousel>
 					<v-carousel-item
-			
 						v-for="ad in promoAds"
 						:key="ad.id"
 						:src="ad.src"
@@ -46,23 +46,39 @@
 			</v-flex>
 		</v-layout> 
 	</v-container>
+	</div><!--
+	<div v-else>
+		<v-container>
+			<v-layout row>
+				<v-flex xs12 sm2 offset-sm6 class="mt-5">
+					<v-progress-circular 
+						:size="70"
+						:width="7"
+						color="primary"
+						indeterminate
+					></v-progress-circular>
+				</v-flex>
+			</v-layout>
+		</v-container>
 	</div>
+-->
 </template>
 
 <script>
 export default {
-	
 	computed:  { 
 		promoAds() {
 			return this.$store.getters.promoAds
 		},
 		ads() {
 			return this.$store.getters.ads
-		}
+		}/*,
+		loading() {
+		return this.$store.getters.loading
+	}*/
 }
 } 
 </script>
-
 <style scoped>
 	.ad-link {
 		position:absolute;
